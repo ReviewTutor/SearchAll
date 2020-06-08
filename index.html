@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset ="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	
+        <title>Review Tutor</title>
+        <style>
+             
+            section {
+               color: white;
+               border-radius: 0.5em;
+               padding: 0.5em;
+               position: absolute;
+               left: 50%;
+               margin-right: -50%;
+               transform: translate(-50%, -50%) }
+           header {
+               background-color: rgb(219, 219, 219);	
+               color: #ddd;
+               padding: 20px;
+               text-align: center;
+               width: 100%;
+               height: 125px;
+               content: '';
+               display: inline-block;
+               vertical-align: middle;  
+           }
+           footer {
+               background-color: rgb(50,50,50);	
+               color: #ddd;
+               padding: 20px;
+               text-align: center;
+               width: 100%;
+               position: relative;
+               bottom: 0;
+               height: 80px;
+               margin-bottom: -80px;
+               content: '';
+               display: inline-block;
+               vertical-align: middle; 
+           }
+           main {
+               width: 100%;
+               margin: 0 auto;
+               min-height: calc(-185vh - 125px - 60px);
+
+           }
+          
+           .container{
+               width:70%;
+               margin: 20px auto;
+               overflow:auto;
+               height:100%;
+           }
+               @media only screen and (max-width: 900px){
+               .container{
+               width:100%;
+               }
+           }
+           body {
+               background-image: url('https://user-images.githubusercontent.com/66401205/83975411-dbeb3200-a8c1-11ea-9ab8-3194ae81c61e.jpg');
+               color: white;
+               font-family: Arial, Helvetica, sans-serif;
+               margin: 0px;
+               padding:0px;
+               padding-bottom:40px;
+               height:100%;
+           }
+           
+           h1 { 
+               color: rgb(255, 255, 255);
+               font-family: Arial, Helvetica, sans-serif
+               
+               
+           }
+           h3 {
+               color: rgb(49, 49, 49);
+           }
+           h2 {
+               color: black;
+           }
+           h4 {
+               color: white
+           }
+           p {
+               color: rgb(255, 255, 255);
+           }
+         
+           ul {
+               list-style-type: none;
+               margin: 0;
+               padding: 0;
+               overflow: hidden;
+               background-color: #464646;
+               width: 100%;
+               
+           }
+           nav {
+               border-radius: 0px;
+               box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+               color: rgb(73, 73, 73);
+               display: block;
+               margin: 8px 22px 8px 22px;
+               overflow: hidden;
+               width: 100%; 
+               margin: 0;
+               padding: 0;
+           }
+           
+           li.horizontal {
+           float: left;
+           }
+           li a {
+               display: block;
+               color: white;
+               text-align:center;
+               padding: 16px;
+               text-decoration: none;
+           }
+           li a:hover {
+               background-color: #111111;
+           }
+           
+           
+           .button {
+               font:  15px Arial;
+               text-decoration: none;
+               background-color: #EEEEEE;
+               color: #333333;
+               padding: 2px 6px 2px 6px;
+               border-top: 1px solid #CCCCCC;
+               border-right: 1px solid #333333;
+               border-bottom: 1px solid #333333;
+               border-left: 1px solid #CCCCCC;
+               }
+           
+           *{
+            box-sizing: border-box;
+            }
+           /* Create three unequal columns that floats next to each other */
+           .column {
+           float: left;
+           padding: 10px;
+          
+           }
+           .left, .right {
+           width: 25%;
+           height: 100%;
+           }
+           .middle {
+           width: 50%;
+           height: 100%;
+           }
+           /* Clear floats after the columns */
+           .row:after {
+           content: "";
+           display: table;
+           clear: both;
+           }
+           vertical-menu {
+           width: 200px;
+           }
+           .vertical-menu a {
+           background-color: #eee;
+           color: black;
+           display: block;
+           padding: 12px;
+           text-decoration: none;
+           }
+           .vertical-menu a:hover {
+           background-color: #ccc;
+           }
+
+            .logo {
+                text-indent: 0px;
+                background: url('logo.png');
+                background: url('https://user-images.githubusercontent.com/66401205/83921317-192db380-a74c-11ea-9cca-667b7c7eb65d.png');
+                height: 85px;
+                width: 155px;
+                margin-left: auto;
+               margin-right: auto;
+               margin-top: auto;
+               margin-bottom: auto;
+                }
+
+                .lock-screen {
+                    display: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100vh;
+                    background: rgba(0, 0, 0, .7);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    display: none;
+                    }
+
+                .sbx-custom {
+                    display: inline-block;
+                    position: relative;
+                    width: 700px;
+                    height: 51px;
+                    white-space: nowrap;
+                    box-sizing: border-box;
+                    font-size: 14px;
+                    }
+
+                    .sbx-custom__wrapper {
+                    width: 100%;
+                    height: 100%;
+                    }
+
+                    .sbx-custom__input {
+                    display: inline-block;
+                    -webkit-transition: box-shadow .4s ease, background .4s ease;
+                    transition: box-shadow .4s ease, background .4s ease;
+                    border: 0;
+                    border-radius: 26px;
+                    box-shadow: inset 0 0 0 2px #000000;
+                    background: #FFFFFF;
+                    padding: 0;
+                    padding-right: 41px;
+                    padding-left: 51px;
+                    width: 100%;
+                    height: 100%;
+                    vertical-align: middle;
+                    white-space: normal;
+                    font-size: inherit;
+                    -webkit-appearance: none;
+                        -moz-appearance: none;
+                            appearance: none;
+                    }
+
+                    .sbx-custom__input::-webkit-search-decoration, .sbx-custom__input::-webkit-search-cancel-button, .sbx-custom__input::-webkit-search-results-button, .sbx-custom__input::-webkit-search-results-decoration {
+                    display: none;
+                    }
+
+                    .sbx-custom__input:hover {
+                    box-shadow: inset 0 0 0 2px black;
+                    }
+
+                    .sbx-custom__input:focus, .sbx-custom__input:active {
+                    outline: 0;
+                    box-shadow: inset 0 0 0 2px #2D72A6;
+                    background: #FFFFFF;
+                    }
+
+                    .sbx-custom__input::-webkit-input-placeholder {
+                    color: #8AA6BB;
+                    }
+
+                    .sbx-custom__input::-moz-placeholder {
+                    color: #8AA6BB;
+                    }
+
+                    .sbx-custom__input:-ms-input-placeholder {
+                    color: #8AA6BB;
+                    }
+
+                    .sbx-custom__input::placeholder {
+                    color: #8AA6BB;
+                    }
+
+                    .sbx-custom__submit {
+                    position: absolute;
+                    top: 0;
+                    right: inherit;
+                    left: 0;
+                    margin: 0;
+                    border: 0;
+                    border-radius: 25px 0 0 25px;
+                    background-color: rgba(255, 255, 255, 0);
+                    padding: 0;
+                    width: 51px;
+                    height: 100%;
+                    vertical-align: middle;
+                    text-align: center;
+                    font-size: inherit;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    }
+
+                    .sbx-custom__submit::before {
+                    display: inline-block;
+                    margin-right: -4px;
+                    height: 100%;
+                    vertical-align: middle;
+                    content: '';
+                    }
+
+                    .sbx-custom__submit:hover, .sbx-custom__submit:active {
+                    cursor: pointer;
+                    }
+
+                    .sbx-custom__submit:focus {
+                    outline: 0;
+                    }
+
+                    .sbx-custom__submit svg {
+                    width: 31px;
+                    height: 31px;
+                    vertical-align: middle;
+                    fill: #2D72A6;
+                    }
+
+                    .sbx-custom__reset {
+                    display: none;
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    margin: 0;
+                    border: 0;
+                    background: none;
+                    cursor: pointer;
+                    padding: 0;
+                    font-size: inherit;
+                    -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                            user-select: none;
+                    fill: rgba(0, 0, 0, 0.5);
+                    }
+
+                    .sbx-custom__reset:focus {
+                    outline: 0;
+                    }
+
+                    .sbx-custom__reset svg {
+                    display: block;
+                    margin: 4px;
+                    width: 19px;
+                    height: 19px;
+                    }
+
+                    .sbx-custom__input:valid ~ .sbx-custom__reset {
+                    display: block;
+                    -webkit-animation-name: sbx-reset-in;
+                            animation-name: sbx-reset-in;
+                    -webkit-animation-duration: .15s;
+                            animation-duration: .15s;
+                    }
+
+                    @-webkit-keyframes sbx-reset-in {
+                    0% {
+                        -webkit-transform: translate3d(-20%, 0, 0);
+                                transform: translate3d(-20%, 0, 0);
+                        opacity: 0;
+                    }
+                    100% {
+                        -webkit-transform: none;
+                                transform: none;
+                        opacity: 1;
+                    }
+                    }
+
+                    @keyframes sbx-reset-in {
+                    0% {
+                        -webkit-transform: translate3d(-20%, 0, 0);
+                                transform: translate3d(-20%, 0, 0);
+                        opacity: 0;
+                    }
+                    100% {
+                        -webkit-transform: none;
+                                transform: none;
+                        opacity: 1;
+                    }
+                    }
+
+                    #myUL ul{
+                        list-style: none;
+                        }
+                    #myUL li{
+                        list-style: inline;
+                        }
+       </style>
+    </head>		
+		<header class="container-fluid">
+            <h1 class= "logo"></h1>
+	    </header>
+        <nav class="container-fluid">
+            <ul class="horizontal">
+                <li class="horizontal"><a class="active" href="https://reviewtutor.github.io">Home</a></li>
+                <li class="horizontal"><a href="https://reviewtutor.github.io/submissions/">Submissions</a></li>
+                <li class="horizontal"><a href="javascript:void(0)">Contact</a></li>
+                <li class="rightli horizontal" style="float:right"><a href="javascript:void(0)">About</a></li>
+            </ul>
+        </nav>
+       <br>
+            </div>
+            <center>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+                <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-22" viewBox="0 0 40 40">
+                  <path d="M24.382 25.485c-1.704 1.413-3.898 2.263-6.292 2.263-5.42 0-9.814-4.36-9.814-9.736 0-5.377 4.394-9.736 9.814-9.736s9.815 4.36 9.815 9.736c0 2.126-.687 4.093-1.853 5.694l5.672 5.627-1.73 1.718-5.612-5.565zM20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20zm-1.91-14.686c4.065 0 7.36-3.27 7.36-7.302 0-4.033-3.295-7.302-7.36-7.302s-7.36 3.27-7.36 7.302c0 4.033 3.295 7.302 7.36 7.302z"
+                  fill-rule="evenodd" />
+                </symbol>
+                <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-5" viewBox="0 0 20 20">
+                  <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm1.35-10.123l3.567 3.568-1.225 1.226-3.57-3.568-3.567 3.57-1.226-1.227 3.568-3.568-3.57-3.57 1.227-1.224 3.568 3.568 3.57-3.567 1.224 1.225-3.568 3.57zM10 18.272c4.568 0 8.272-3.704 8.272-8.272S14.568 1.728 10 1.728 1.728 5.432 1.728 10 5.432 18.272 10 18.272z"
+                  fill-rule="evenodd" />
+                </symbol>
+              </svg>
+              
+              <form novalidate="novalidate" onsubmit="return false;" class="searchbox sbx-custom" onkeyup="myFunction()">
+                <div role="search" class="sbx-custom__wrapper" id="search">
+                  <input type="search" name="search" placeholder="Search Quizzes" autocomplete="off" onkeyup="myFunction()" required="required" class="sbx-custom__input" id="myInput">
+                    <br>
+                    <br>
+                    <div class="vertical-menu">
+                    <ul id="myUL">
+                        
+                        <li ><a href="https://reviewtutor.github.io/GeographyEasy/">Geo Quiz (Easy)</a></li>
+                        <li><a href="https://reviewtutor.github.io/GeographyHard/">Geo Quiz (Hard)</a></li>
+                        <li><a href="#">Random2</a></li>
+                        <li><a href="#">Random3</a></li>
+                        <li><a href="#">Random4</a></li>
+                        <li><a href="#">Random5</a></li>
+                        <li><a href="#">Random6</a></li>
+                        <li><a href="#">Random7</a></li>
+                        <li><a href="#">Random8</a></li>
+                        <li><a href="#">Random9</a></li>
+                        <li><a href="#">Random10</a></li>
+                        <li><a href="#">Random11</a></li>
+                        <li><a href="#">Random12</a></li>                        
+                        <li><a href="#">Random13</a></li>
+                        <li><a href="#">Random14</a></li>
+                        <li><a href="#">Random15</a></li>
+                        <li><a href="#">Random16</a></li>
+                        <li><a href="#">Random17</a></li>
+                        <li><a href="#">Random18</a></li>
+                        <li><a href="#">Random19</a></li>
+                        <li><a href="#">Random20</a></li>
+                        <li><a href="#">Random21</a></li>
+                        <li><a href="#">Random22</a></li>
+                        <li><a href="#">Random23</a></li>
+                        <li><a href="#">Random24</a></li>
+                        <li><a href="#">Random25</a></li>
+                    </ul>
+                </div>
+                  <button type="submit" title="Submit your search query." class="sbx-custom__submit">
+                    <svg role="img" aria-label="Search">
+                      <use xlink:href="#sbx-icon-search-22"></use>
+                    </svg>
+                  </button>
+                  <button type="reset" title="Clear the search query." class="sbx-custom__reset">
+                    <svg role="img" aria-label="Reset">
+                      <use xlink:href="#sbx-icon-clear-5"></use>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+              <script>
+                function myFunction() {
+                  // Declare variables
+                  var input, filter, ul, li, a, i, txtValue;
+                  input = document.getElementById('myInput');
+                  filter = input.value.toUpperCase();
+                  ul = document.getElementById("myUL");
+                  li = ul.getElementsByTagName('li');
+                
+                  // Loop through all list items, and hide those who don't match the search query
+                  for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      li[i].style.display = "";
+                    } else {
+                      li[i].style.display = "none";
+                    }
+                  }
+                }
+                </script>
+              
+              <script type="text/javascript">
+                document.querySelector('.searchbox [type="reset"]').addEventListener('click', function() {  this.parentNode.querySelector('input').focus();});
+              </script>
+
+
+               </div> 
+            </center>
+            </div>
+          </div>
+        </div>
+      <main>
+    <br>
+    <br>
+    
+	<footer class="container-fluid">
+		<p>Copyright &#169; <script>document.write(new Date().getFullYear());</script>, Review Tutor</p>
+	</footer>
+        
+</body>
+</html>
